@@ -1,0 +1,12 @@
+.default_screen {
+  width: 70%;
+  height: 100%;
+  color: white !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.default_screen h1 {
+  text-align: center;
+}

@@ -1,0 +1,114 @@
+[
+  {
+    "id": 1,
+    "name": "Leanne Graham",
+    "messages": [
+      {
+        "text": "Ik heb een vraag",
+        "fromUser": true,
+        "time": 1429257762800
+      },
+      {
+        "text": "Wat is je vraag?",
+        "fromUser": true,
+        "time": 1429257942900
+      },
+      {
+        "text": "Hoe kun je een deal kopen?",
+        "fromUser": false,
+        "time": 1429257763000
+      },
+      {
+        "text": "Door middel op de 'Koop nu' knop te drukken",
+        "fromUser": true,
+        "time": 1429259943100
+      },
+      {
+        "text": "Ik heb een vraag",
+        "fromUser": false,
+        "time": 1429257762800
+      },
+      {
+        "text": "Wat is je vraag?",
+        "fromUser": true,
+        "time": 1429257942900
+      },
+      {
+        "text": "Hoe kun je een deal kopen?",
+        "fromUser": false,
+        "time": 1429257763000
+      },
+      {
+        "text": "Door middel op de 'Koop nu' knop te drukken",
+        "fromUser": true,
+        "time": 1429259943100
+      },
+      {
+        "text": "Ik heb een vraag",
+        "fromUser": false,
+        "time": 1429257762800
+      },
+      {
+        "text": "Wat is je vraag?",
+        "fromUser": true,
+        "time": 1429257942900
+      },
+      {
+        "text": "Hoe kun je een deal kopen?",
+        "fromUser": true,
+        "time": 1429257763000
+      },
+      {
+        "text": "Door middel op de 'Koop nu' knop te drukken",
+        "fromUser": false,
+        "time": 1429259943100
+      },
+      {
+        "text": "Ik heb een vraag",
+        "fromUser": false,
+        "time": 1429257762800
+      },
+      {
+        "text": "Wat is je vraag?",
+        "fromUser": false,
+        "time": 1429257942900
+      },
+      {
+        "text": "Hoe kun je een deal kopen?",
+        "fromUser": false,
+        "time": 1429257763000
+      },
+      {
+        "text": "Door middel op de 'Koop nu' knop te drukken",
+        "fromUser": false,
+        "time": 1429259943100
+      },
+      {
+        "text": "Ik heb een vraag",
+        "fromUser": false,
+        "time": 1429257762800
+      },
+      {
+        "text": "Wat is je vraag?",
+        "fromUser": true,
+        "time": 1429257942900
+      },
+      {
+        "text": "Hoe kun je een deal kopen?",
+        "fromUser": true,
+        "time": 1429257763000
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Ervin Howell",
+    "messages": [
+      {
+        "text": "Ik heb een vraag",
+        "fromUser": true,
+        "time": 1429257762800
+      }
+    ]
+  }
+]
