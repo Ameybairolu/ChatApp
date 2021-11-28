@@ -1,8 +1,13 @@
 import classes from './EachChatTab.module.css';
-const EachChatTab = () => {
+const EachChatTab = (props) => {
+    // console.log(props.data);
     return (
-        <div>
-            <h1>Kaay re</h1>
+        <div className={classes.common}>
+            <img src={props.data.dp} alt="dp" />
+            <div>
+                <h3>{props.data.name}</h3>
+                <span>{props.data.latest}</span>
+            </div>
         </div>
     );
 }

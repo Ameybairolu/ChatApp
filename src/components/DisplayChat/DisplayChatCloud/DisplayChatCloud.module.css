@@ -1,0 +1,12 @@
+.div_align_left {
+}
+.div_align_right {
+  position: relative;
+  left: 20%;
+}
+
+.common_to_cloud {
+  background-color: white;
+  width: 70%;
+  margin: 5%;
+}
