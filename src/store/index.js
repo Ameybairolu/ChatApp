@@ -1,6 +1,7 @@
-import { createStore } from 'redux';
 
-const counterReducer = (state = {
+import { createSlice, configureStore } from '@reduxjs/toolkit';
+
+const initialState = {
     chatdata: [],
     allContacts: [
         {
@@ -35,41 +36,42 @@ const counterReducer = (state = {
             name: "Light Yagami",
             username: "kira"
         }]
-}, action) => {
-    // type: 'updateChatData',
-    //     changeTo: params,
-    //         text: event.target.value,
-    //             time: new Date(),
-
-    if (action.type === 'databaseDataSet') {
-        if (state.chatdata.length === 0) {
-            state.chatdata = action.obtainedData;
-        }
-        return state;
-    }
-
-    if (action.type === 'updateChatData') {
-        const index = state.chatdata.findIndex(eachChat => {
-            return (eachChat.username === action.changeTo);
-        })
-
-        state.chatdata[index].messages.push({
-            fromUser: true,
-            text: action.text,
-            time: action.time
-        });
-
-        return state;
-    }
-
-    if (action.type === 'initializeNewChat') {
-        console.log("reached initialize");
-        return state;
-    }
-
-    return state;
 };
 
-const store = createStore(counterReducer);
+const dataSlice = createSlice({
+    name: 'everyData',
+    initialState,
+    reducers: {
+        databaseDataSet(state, action) {
+            if (state.chatdata.length === 0) {
+                state.chatdata = action.payload.obtainedData;
+            }
+        },
+        updateChatData(state, action) {
+            const index = state.chatdata.findIndex(eachChat => {
+                return (eachChat.username === action.payload.changeTo);
+            });
+
+            state.chatdata[index].messages.push({
+                fromUser: true,
+                text: action.payload.text,
+                time: action.payload.time
+            });
+        },
+        initializeNewChat(state, action) {
+            const updateChatData = state.chatdata;
+            updateChatData.push(action.payload.chatToAdd[0]);
+            state.chatdata = updateChatData;
+        }
+    }
+});
+
+
+
+const store = configureStore({
+    reducer: dataSlice.reducer
+});
+
+export const dataActions = dataSlice.actions;
 
 export default store;

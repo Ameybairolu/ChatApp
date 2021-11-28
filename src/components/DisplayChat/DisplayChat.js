@@ -1,4 +1,4 @@
-import { useCallback, useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import { useParams, useHistory } from 'react-router-dom';
 import DisplayChatCloud from './DisplayChatCloud/DisplayChatCloud';
@@ -9,84 +9,61 @@ import ReactScrollableFeed from 'react-scrollable-feed';
 
 import { useSelector, useDispatch } from 'react-redux';
 
+import { dataActions } from '../../store/index.js';
+
 const DisplayChat = () => {
 
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const allChatData = useSelector(state => {
-        return state.chatdata;
-    });
+    const allChatData = useSelector(state => state.chatdata);
+
+    const allContacts = useSelector(state => state.allContacts);
 
     const params = useParams();
 
-    const [data, setData] = useState([]);
-
     const [enteredText, setEnteredText] = useState('');
 
-    const fetchChatDataFromFirebase = useCallback(
-        async () => {
-            try {
-                const response = await fetch('https://chatapi-b173c-default-rtdb.asia-southeast1.firebasedatabase.app/chathistory.json');
-                const result = await response.json();
-                const allKeys = Object.keys(result);
-                dispatch({
-                    type: 'databaseDataSet',
-                    obtainedData: result[allKeys[0]],
-                });
-
-                // setTimeout(() => {
-                //     getRequiredChatHistory();
-                // }, 3000);
-            } catch (e) {
-                console.log(e);
-            }
-        }, [dispatch]
-    )
+    const requiredChat = allChatData.filter(eachChat => {
+        return eachChat.username === params.username;
+    });
 
     useEffect(() => {
-        // console.log(allChatData);
-        if (!allChatData) {
-            return;
+        if (requiredChat.length === 0) {
+            dispatch(dataActions.initializeNewChat({
+                chatToAdd: allContacts.filter(eachContact => {
+                    return eachContact.username === params.username;
+                }),
+            }));
         }
-        const requiredChat = allChatData.filter(eachChat => {
-            return eachChat.username === params.username;
-        });
+    }, [allContacts, dispatch, params.username, requiredChat.length]);
 
-        setData(requiredChat);
-    }, [params.username, allChatData])
-
-    useEffect(() => {
-        fetchChatDataFromFirebase()
-    }, [fetchChatDataFromFirebase]);
-
-    const obtainChatCloud = data.length === 0 ? "Kuch nahi hai" : <ReactScrollableFeed> {data[0].messages.map((eachMessage, index) => {
-        console.log(eachMessage);
+    const obtainChatCloud = requiredChat.length === 0 ? "Kuch nahi hai" : <ReactScrollableFeed> {requiredChat[0].messages.map((eachMessage, index) => {
         return (
-            <DisplayChatCloud key={`message${index}`} messageData={eachMessage} messageFrom={data[0].username} />
+            <DisplayChatCloud key={`message${index}`} messageData={eachMessage} messageFrom={requiredChat[0].username} />
         );
     })} </ReactScrollableFeed>;
 
+    // The below 2 functions are required to handle text-sending from the user's end
+
     const saveEnteredTextHandler = (event) => {
-        console.log(event.target.value);
         setEnteredText(event.target.value);
     };
 
     const addNewTextHandler = (event) => {
         event.preventDefault();
-        dispatch({
-            type: 'updateChatData',
+        dispatch(dataActions.updateChatData({
             changeTo: params.username,
             text: enteredText,
-            time: new Date(),
-        });
+            time: Date.now(),
+        }));
         setEnteredText('');
         history.push(`/chat/${params.username}`);
     };
 
     return (
         <div className={classes.container}>
-            {data.length !== 0 && obtainChatCloud}
+            {requiredChat.length !== 0 && obtainChatCloud}
             <form onSubmit={addNewTextHandler.bind(this)}>
                 <input type="text" onChange={saveEnteredTextHandler.bind(this)} value={enteredText} />
                 <button type="submit">Send</button>
