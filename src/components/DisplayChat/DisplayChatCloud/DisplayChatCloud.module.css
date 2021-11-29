@@ -1,12 +1,35 @@
-.div_align_left {
-}
 .div_align_right {
   position: relative;
-  left: 20%;
+  left: 25%;
 }
 
 .common_to_cloud {
-  background-color: white;
+  background-color: #2c6bed;
   width: 70%;
-  margin: 5%;
+  margin: 3%;
+  border-radius: 20px;
+}
+
+.common_to_cloud p {
+  padding-top: 10px;
+  margin-left: 20px;
+}
+
+.common_to_cloud h5 {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 20px;
+  margin-right: 20px;
+  align-items: center;
+}
+
+.common_to_cloud h5 img {
+  height: 13px;
+  width: 13px;
+  border-radius: 50%;
+}
+
+.common_to_cloud h5 span {
+  display: flex;
+  align-items: center;
 }

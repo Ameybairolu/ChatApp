@@ -1,5 +1,7 @@
 import classes from './DisplayChatCloud.module.css';
 
+import ConvertTime from '../../nonJSFunctions/ConvertTime';
+
 const DisplayChatCloud = (props) => {
     // console.log(props.messageData);
     return (
@@ -7,9 +9,17 @@ const DisplayChatCloud = (props) => {
             <p>
                 {props.messageData.text}
             </p>
-            <h3>
-                {props.messageData.fromUser ? "You" : props.messageFrom}
-            </h3>
+            <h5>
+                <span>
+                    {!props.messageData.fromUser && <img src={props.urlForDP} alt="dp" />}
+                    <span>
+                        {props.messageData.fromUser ? "You" : props.messageFrom}
+                    </span>
+                </span>
+                <span>
+                    {ConvertTime(props.messageData.time)}
+                </span>
+            </h5>
         </div>
     )
 }

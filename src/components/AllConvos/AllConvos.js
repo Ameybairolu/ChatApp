@@ -1,6 +1,6 @@
 import classes from './AllConvos.module.css';
 import SearchConvo from './SearchConvo/SearchConvo';
-import ChatTabs from '../../ChatTabs/ChatTabs';
+import ChatTabs from '../ChatTabs/ChatTabs';
 import { useState } from 'react';
 import AddNewConvo from './AddNewConvo/AddNewConvo';
 
