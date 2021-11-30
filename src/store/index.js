@@ -159,8 +159,7 @@ const dataSlice = createSlice({
 
 const persistConfig = {
     key: 'root',
-    storage,
-    whitelist: ["dataSlice.reducer"]
+    storage
 }
 
 // The below line is responsible for data persistance. That is, the data is retrieved even after page reload or unload
