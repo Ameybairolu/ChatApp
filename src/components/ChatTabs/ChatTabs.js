@@ -9,6 +9,8 @@ import { useEffect } from "react";
 import { useParams, useHistory } from 'react-router-dom';
 import { dataActions } from '../../store/index.js';
 
+// This component renders the link to display each tab
+
 const ChatTabs = (props) => {
 
     let data = useSelector(state => state.chatdata);
@@ -29,21 +31,19 @@ const ChatTabs = (props) => {
 
     }, [data, dispatch, history.location.pathname, params.username]);
 
-    let eachChatTab = props.searchFor === '' ? data.map(eachConvo => {
-        return <NavLink key={`index${eachConvo.id}`} to={`/chat/${eachConvo.username}`} className={isActive => {
-            return isActive ? `${classes.active}` : "";
-        }
-        } style={{ textDecoration: 'none', color: 'white' }} ><EachChatTab data={eachConvo} /></NavLink>
-    }) : data.filter(eachConvo => eachConvo.name.includes(props.searchFor)
+    let eachChatTab = data.filter(eachConvo => eachConvo.name.toLowerCase().includes(props.searchFor.toLowerCase())
     ).map(eachConvo => {
-        return <NavLink key={`index${eachConvo.id}`} to={`/chat/${eachConvo.username}`} className={isActive => {
+        return <NavLink key={`index${eachConvo.id}`} to={`/chat/${eachConvo.username}`} onClick={props.close} className={isActive => {
             return isActive ? `${classes.active}` : "";
         }
-        } style={{ textDecoration: 'none' }} ><EachChatTab data={eachConvo} /></NavLink>
+        } style={{
+            textDecoration: 'none', color: 'white', backgroundColor: '#003153'
+        }} > <EachChatTab data={eachConvo} /></NavLink >
     });
 
     return <div>
-        {eachChatTab}
+        {eachChatTab.length > 0 && eachChatTab}
+        {eachChatTab.length === 0 && <div style={{ textAlign: 'center' }}><h3>No chats to Load.</h3> Start a new conversation!</div>}
     </div>
 
 }

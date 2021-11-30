@@ -11,10 +11,9 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { dataActions } from '../../store/index.js';
 
-// import LoadData from '../LoadData/LoadData';
+// This component renders the chat for a particular contact
 
 const DisplayChat = () => {
-    // LoadData();
 
     const dispatch = useDispatch();
     const history = useHistory();

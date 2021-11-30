@@ -2,13 +2,15 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 
 import classes from './App.module.css';
 import AllConvos from './components/AllConvos/AllConvos';
-import DefaultScreen from './components/DefaultScreen';
+import DefaultScreen from './components/UI/DefaultScreen';
 
 import DisplayChat from './components/DisplayChat/DisplayChat';
 
 import DisplayAllContacts from './components/DisplayAllContacts/DisplayAllContacts';
 
 import LoadData from './components/LoadData/LoadData';
+
+// This is the main component which displays data based upon the url, using React Router 
 
 function App() {
 

@@ -1,6 +1,8 @@
 import classes from './EachChatTab.module.css';
+
+// The component is responsible for rendering each and every chat tab.
+
 const EachChatTab = (props) => {
-    // console.log(props.data);
     return (
         <div className={classes.common}>
             <img src={props.data.dp} alt="dp" />

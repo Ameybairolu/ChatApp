@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { useCallback, useEffect } from "react";
 import { dataActions } from "../../store";
 
+// The below component doesn't render anything. Simply obtains data from the server, i.e. the firebase
 const LoadData = () => {
 
     const dispatch = useDispatch();

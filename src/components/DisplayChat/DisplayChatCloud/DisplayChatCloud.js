@@ -2,6 +2,8 @@ import classes from './DisplayChatCloud.module.css';
 
 import ConvertTime from '../../nonJSFunctions/ConvertTime';
 
+// The DisplayChat component uses this component to obtain chat cloud for each response
+
 const DisplayChatCloud = (props) => {
     // console.log(props.messageData);
     return (
