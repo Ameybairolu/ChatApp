@@ -23,9 +23,6 @@ function App() {
         <Route path='/' exact>
           <DefaultScreen />
         </Route>
-        <Route path='/home' exact>
-          <DefaultScreen />
-        </Route>
         <Route path='/chat/:username'>
           <DisplayChat />
         </Route>
