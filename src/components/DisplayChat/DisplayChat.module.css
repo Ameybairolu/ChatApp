@@ -36,7 +36,7 @@
 .container form input {
   width: 70%;
   border: none;
-  height: 25px;
+  height: 35px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 }
@@ -47,6 +47,7 @@
   border: none;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
+  height: 35px;
 }
 
 .chats ::-webkit-scrollbar {
