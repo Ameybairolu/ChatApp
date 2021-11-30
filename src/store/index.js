@@ -158,7 +158,7 @@ const dataSlice = createSlice({
 });
 
 const persistConfig = {
-    key: 'root',
+    key: 'chatdata',
     storage
 }
 
