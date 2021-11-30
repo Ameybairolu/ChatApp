@@ -34,12 +34,12 @@ const styles = {
         height: '25px',
         left: '30px',
         top: '10px',
+        zIndex: '3'
     },
 
     /* Color/shape of burger icon bars */
     bmBurgerBars: {
         background: 'white',
-        zIndex: '2',
     },
 
     /* Position and sizing of clickable cross button */
