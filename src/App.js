@@ -20,6 +20,9 @@ function App() {
     <div className={classes.container}>
       <AllConvos />
       <Switch>
+        <Route path='/ChatApp' exact>
+          <Redirect to='/home' />
+        </Route>
         <Route path='/' exact>
           <Redirect to='/home' />
         </Route>
