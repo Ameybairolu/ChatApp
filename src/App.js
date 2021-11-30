@@ -1,4 +1,4 @@
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import classes from './App.module.css';
 import AllConvos from './components/AllConvos/AllConvos';
@@ -20,11 +20,8 @@ function App() {
     <div className={classes.container}>
       <AllConvos />
       <Switch>
-        <Route path='/ChatApp' exact>
-          <Redirect to='/home' />
-        </Route>
         <Route path='/' exact>
-          <Redirect to='/home' />
+          <DefaultScreen />
         </Route>
         <Route path='/home' exact>
           <DefaultScreen />
