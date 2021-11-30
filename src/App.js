@@ -32,7 +32,7 @@ function App() {
         <Route path='/chat/:username'>
           <DisplayChat />
         </Route>
-        <Route path='#/newchat'>
+        <Route path='/newchat'>
           <DisplayAllContacts />
         </Route>
       </Switch>

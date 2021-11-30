@@ -5,7 +5,7 @@ import classes from './AddNewConvo.module.css';
 
 const AddNewConvo = (props) => {
     return (
-        <Link to={'#/newchat'} onClick={props.close}>
+        <Link to={'/newchat'} onClick={props.close}>
             <button className={classes.convo_button}>Start New Conversation ➕</button>
         </Link>
     )
